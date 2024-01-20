@@ -1,0 +1,29 @@
+version: "3"
+services:
+  directus:
+    image: directus/directus:10.8.3
+    ports:
+      - 8055:8055
+    volumes:
+      - ./database:/directus/database
+      - ./uploads:/directus/uploads
+      - ./extensions:/directus/extensions
+    environment:
+      KEY: "DJKAGDO2546YT32MDDNasdewnngioeisn923949asndnn"
+      SECRET: /run/secrets/env_secret
+      ADMIN_EMAIL: /run/secrets/admin_email
+      ADMIN_PASSWORD: /run/secrets/admin_password
+      DB_CLIENT: "sqlite3"
+      DB_FILENAME: "/directus/database/data.db"
+      WEBSOCKETS_ENABLED: true
+    secrets:
+      - env_secret
+      - admin_email
+      - admin_password
+secrets:
+  env_secret:
+    file: ./secrets/env_secret.txt
+  admin_email:
+    file: ./secrets/admin_email.txt
+  admin_password:
+    file: ./secrets/admin_password.txt

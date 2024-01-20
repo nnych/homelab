@@ -1,0 +1,5 @@
+# directus gitignore
+database/
+extensions/
+uploads/
+secrets/

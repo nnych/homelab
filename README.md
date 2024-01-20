@@ -1,2 +1,1 @@
 # homelab
-Automating my homelab
